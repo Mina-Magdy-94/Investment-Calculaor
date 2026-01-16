@@ -1,22 +1,8 @@
-import React, { useState } from 'react'
 
-const UserInputs = () => {
-    const [formValues,setFormValues]=useState({
-        initialInvestment:10000,
-        annualInvestment:1200,
-        expectedReturn:6,
-        duration:10
-    })
-
-
-  function  handleFormChanges(e){
-        setFormValues(prevValues=>({...prevValues,[e.target.name]:e.target.value}))
-    }
-
-    console.log(formValues)
+const UserInputs = ({formValues,onFormChange}) => {
 
   return (
-    <form id='user-input' onChange={(e)=>handleFormChanges(e)}>
+    <form id='user-input' onChange={(e)=>onFormChange(e)}>
         <div className="input-group">
             <p>
                 <label>Initial Investment</label>
